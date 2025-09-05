@@ -1,0 +1,61 @@
+/* Scoped centering fixes for leaves and grass without affecting global styles */
+
+/* Enable by adding class "layout-fix" to the .flowers container */
+.flowers.layout-fix { position: relative; }
+/* Slightly increase overall bouquet size */
+.flowers.layout-fix { transform: scale(0.9) !important; }
+
+/* Center flower leaf clusters within each flower */
+.flowers.layout-fix .flower__leafs {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Center ground grass and long grass clusters relative to the flowers container */
+.flowers.layout-fix .flower__grass,
+.flowers.layout-fix .flower__g-right,
+.flowers.layout-fix .flower__g-right--2,
+.flowers.layout-fix .flower__g-fr,
+.flowers.layout-fix .long-g,
+.flowers.layout-fix .long-g--0,
+.flowers.layout-fix .long-g--1,
+.flowers.layout-fix .long-g--2,
+.flowers.layout-fix .long-g--3,
+.flowers.layout-fix .long-g--4,
+.flowers.layout-fix .long-g--5,
+.flowers.layout-fix .long-g--6,
+.flowers.layout-fix .long-g--7 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Optional: small nudge for very small screens */
+@media (max-width: 480px) {
+  .flowers.layout-fix .flower__grass,
+  .flowers.layout-fix .long-g { left: calc(50% - 6px); }
+  /* make bouquet a bit larger on small phones */
+  .flowers.layout-fix { transform: scale(0.85) !important; }
+}
+
+/* Match main breakpoints with a +~0.1 scale */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .flowers.layout-fix { transform: scale(0.95) !important; }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .flowers.layout-fix { transform: scale(1.0) !important; }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+  .flowers.layout-fix { transform: scale(1.1) !important; }
+}
+
+@media only screen and (min-width: 1441px) {
+  .flowers.layout-fix { transform: scale(1.1) !important; }
+}
+
+@media only screen and (max-height: 500px) and (orientation: landscape) {
+  .flowers.layout-fix { transform: scale(1.05) !important; }
+}
